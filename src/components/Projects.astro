@@ -2,117 +2,148 @@
 // Projects.astro
 const projects = [
   {
-    id: 'strobes-platform',
-    title: 'Strobes Security Platform',
-    subtitle: 'Enterprise vulnerability management & VAPT automation',
+    id: 'automated-pr-reviewer',
+    title: 'Automated PR Reviewer',
+    subtitle: 'AI agent for automated code reviews',
     description:
-      'End-to-end security platform processing 10M+ security events daily. Built the core backend architecture — distributed scanning engine, real-time threat aggregation, and compliance reporting pipeline.',
+      'AI agent for automated code reviews integrated into CI/CD pipelines. Detects issues and suggests improvements automatically.',
     highlights: [
-      'Distributed microservices handling 10M+ events/day',
-      'Sub-100ms threat search across TBs of security data',
-      'AI-powered vulnerability triage reducing analyst time 60%',
+      'Integrates seamlessly into CI/CD pipelines',
+      'Detects code issues and anti-patterns',
+      'Suggests automated improvements via CrewAI',
     ],
-    tech: ['FastAPI', 'Celery', 'RabbitMQ', 'PostgreSQL', 'Elasticsearch', 'Redis', 'Docker', 'AWS'],
-    category: 'Production System',
+    tech: ['Python', 'CrewAI', 'GitHub Actions', 'FastAPI'],
+    category: 'AI Tooling',
     categoryColor: '#33d17a',
-    status: 'Production',
+    status: 'Open Source',
     links: {
-      demo: 'https://strobes.co',
+      github: 'https://github.com/suryanshp1/automated-pr-reviewer-ci-agent',
     },
   },
   {
-    id: 'ai-agent-framework',
-    title: 'Agentic AI Workflow Engine',
-    subtitle: 'Multi-agent orchestration for security automation',
+    id: 'play-store-trend-agent',
+    title: 'Play Store Trend Agent',
+    subtitle: 'Agentic analysis of Play Store reviews',
     description:
-      'LLM-powered agent system built with LangGraph for complex, stateful security workflows. Agents autonomously triage vulnerabilities, generate executive reports, and coordinate remediation pipelines.',
-    highlights: [
-      'Multi-agent coordination with LangGraph state machines',
-      'RAG pipeline with vector similarity search',
-      'Human-in-the-loop approval for critical decisions',
-    ],
-    tech: ['LangChain', 'LangGraph', 'Python', 'FastAPI', 'pgvector', 'Redis', 'OpenAI'],
-    category: 'AI / LLM',
+      'Agentic analysis of Play Store reviews with semantic deduplication, trend tracking, and interactive dashboard.',
+    tech: ['Python', 'FastAPI', 'PostgreSQL', 'pgvector', 'Streamlit'],
+    category: 'AI / Data',
     categoryColor: '#6b7fff',
-    status: 'Production',
+    status: 'Open Source',
     links: {
-      github: 'https://github.com/suryanshp1',
+      github: 'https://github.com/suryanshp1/play-store-review-trend-agent',
     },
   },
   {
-    id: 'rag-knowledge-base',
-    title: 'Security Knowledge RAG System',
-    subtitle: 'Intelligent retrieval-augmented generation for threat intel',
+    id: 'advanced-coding-cli',
+    title: 'Advanced Coding CLI',
+    subtitle: 'Terminal-based AI coding assistant',
     description:
-      'Domain-specific RAG pipeline ingesting CVE databases, security advisories, and internal runbooks. Enables natural-language querying over terabytes of structured and unstructured security data.',
-    highlights: [
-      'Hybrid search: dense + sparse (BM25 + embeddings)',
-      'Real-time CVE ingestion from NVD and vendor feeds',
-      'Context-aware re-ranking with cross-encoders',
-    ],
-    tech: ['Python', 'LangChain', 'Elasticsearch', 'pgvector', 'OpenAI', 'FastAPI', 'PostgreSQL'],
-    category: 'AI / LLM',
-    categoryColor: '#6b7fff',
-    status: 'Production',
-    links: {
-      github: 'https://github.com/suryanshp1',
-    },
-  },
-  {
-    id: 'event-driven-infra',
-    title: 'Event-Driven Microservices Platform',
-    subtitle: 'Cloud-native distributed system architecture',
-    description:
-      'Designed and implemented a full event-driven platform migrating a Django monolith to independent microservices. Introduced CQRS, saga pattern, and async event sourcing for data consistency at scale.',
-    highlights: [
-      'Zero-downtime migration from monolith to microservices',
-      'CQRS + saga pattern for distributed transactions',
-      'Terraform IaC with multi-environment AWS deployment',
-    ],
-    tech: ['Python', 'FastAPI', 'RabbitMQ', 'Celery', 'PostgreSQL', 'Docker', 'Terraform', 'AWS ECS'],
-    category: 'Infrastructure',
-    categoryColor: '#e2a97e',
-    status: 'Production',
-    links: {
-      github: 'https://github.com/suryanshp1',
-    },
-  },
-  {
-    id: 'graphql-platform',
-    title: 'Real-Time GraphQL Data Platform',
-    subtitle: 'Subscriptions and federation for enterprise SaaS',
-    description:
-      'Built a GraphQL federation layer over multiple microservices, enabling clients to compose queries across domains. Implemented real-time subscriptions with WebSockets and Redis pub/sub.',
-    highlights: [
-      'GraphQL federation across 6 microservices',
-      'Real-time subscriptions via WebSocket + Redis',
-      'Dataloader batching eliminating N+1 queries',
-    ],
-    tech: ['Django', 'Strawberry GraphQL', 'Redis', 'PostgreSQL', 'WebSocket', 'Python'],
-    category: 'Backend API',
-    categoryColor: '#00d4ff',
-    status: 'Production',
-    links: {
-      github: 'https://github.com/suryanshp1',
-    },
-  },
-  {
-    id: 'devops-pipeline',
-    title: 'DevSecOps Automation Pipeline',
-    subtitle: 'CI/CD with integrated security scanning',
-    description:
-      'End-to-end DevSecOps pipeline integrating SAST, DAST, SCA, and container scanning into GitHub Actions. Automated security gates prevent vulnerable code from reaching production.',
-    highlights: [
-      'SAST + DAST + SCA integrated in CI pipeline',
-      'Container image scanning with policy enforcement',
-      'Automated SBOM generation and compliance reporting',
-    ],
-    tech: ['GitHub Actions', 'Docker', 'Terraform', 'AWS', 'Python', 'Bash'],
-    category: 'DevSecOps',
+      'Terminal-based AI coding assistant with Model Context Protocol (MCP) support and interactive TUI.',
+    tech: ['Python', 'CLI', 'MCP', 'LLM'],
+    category: 'Developer Tools',
     categoryColor: '#c792ea',
     status: 'Open Source',
     links: {
-      github: 'https://github.com/suryanshp1',
+      github: 'https://github.com/suryanshp1/advance-coding-cli-agent',
+    },
+  },
+  {
+    id: 'simplecdc',
+    title: 'SimpleCDC',
+    subtitle: 'Real-time PostgreSQL changes',
+    description:
+      'Lightweight CDC platform that monitors PostgreSQL database changes in real time and streams them to a web dashboard.',
+    tech: ['Python', 'PostgreSQL', 'FastAPI', 'React', 'Docker'],
+    category: 'Backend / Infra',
+    categoryColor: '#00d4ff',
+    status: 'Open Source',
+    links: {
+      github: 'https://github.com/suryanshp1/simple-cdc',
+    },
+  },
+  {
+    id: 'bluesky-ai-agent',
+    title: 'Bluesky AI Agent',
+    subtitle: 'Agentic content automation platform',
+    description:
+      'Agentic content automation platform using multi-agent orchestration. Enabled real-time Bluesky integration for LLM-powered workflows.',
+    tech: ['Python', 'LangChain', 'Groq', 'Atproto'],
+    category: 'AI / Social',
+    categoryColor: '#ffbc2e',
+    status: 'Open Source',
+    links: {
+      github: 'https://github.com/suryanshp1/bluesky-ebook-generator-ai-agent',
+    },
+  },
+  {
+    id: 'nlp-bug-severity-predictor',
+    title: 'NLP Bug Severity Predictor',
+    subtitle: 'Predict vulnerability severity',
+    description:
+      'API to predict vulnerability severity based on description using NLP techniques. Dockerized for easy deployment.',
+    tech: ['Python', 'Docker', 'FastAPI', 'NLP'],
+    category: 'Machine Learning',
+    categoryColor: '#ff5f57',
+    status: 'Open Source',
+    links: {
+      github: 'https://github.com/suryanshp1/nlp-bug-severity-predictor',
+    },
+  },
+  {
+    id: 'gem-price-prediction',
+    title: 'Gem Price Prediction Pipeline',
+    subtitle: 'End-to-end MLOps pipeline',
+    description:
+      'End-to-end MLOps pipeline for gemstone price prediction. Features DVC for data versioning and Azure for cloud deployment.',
+    tech: ['Python', 'MLOps', 'Docker', 'Azure', 'DVC'],
+    category: 'MLOps',
+    categoryColor: '#e2a97e',
+    status: 'Open Source',
+    links: {
+      github: 'https://github.com/suryanshp1/Gem-Price-Prediction-end-to-end-pipeline',
+    },
+  },
+  {
+    id: 'medical-chatbot-rag',
+    title: 'Medical Chatbot RAG',
+    subtitle: 'RAG-based medical queries',
+    description:
+      'RAG-based medical chatbot utilizing Llama2 and Pinecone for semantic search and reliable medical query answering.',
+    tech: ['Python', 'LangChain', 'Flask', 'Llama2', 'Pinecone'],
+    category: 'AI / RAG',
+    categoryColor: '#6b7fff',
+    status: 'Open Source',
+    links: {
+      github: 'https://github.com/suryanshp1/End-to-end-medical-chatbot',
+    },
+  },
+  {
+    id: 'ai-trip-planner',
+    title: 'AI Trip Planner',
+    subtitle: 'Multi-agent travel planning system',
+    description:
+      'Multi-agent travel planning system with dynamic risk assessment, budget optimization, and crowd density prediction.',
+    tech: ['Python', 'CrewAI', 'LangChain', 'Docker'],
+    category: 'AI Tooling',
+    categoryColor: '#33d17a',
+    status: 'Open Source',
+    links: {
+      github: 'https://github.com/suryanshp1/trip-planner-crewai',
+    },
+  },
+  {
+    id: 'social-media-api',
+    title: 'Social Media API',
+    subtitle: 'Robust FastAPI backend',
+    description:
+      'A robust social media application backend built with FastAPI, demonstrating best practices in API development.',
+    tech: ['Python', 'FastAPI'],
+    category: 'Backend API',
+    categoryColor: '#00d4ff',
+    status: 'Open Source',
+    links: {
+      github: 'https://github.com/suryanshp1/social-media-app',
     },
   },
 ];

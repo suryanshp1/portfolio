@@ -215,9 +215,9 @@
     border-color: var(--color-hairline-strong);
   }
 
-  :global([data-theme="light"]) .sun-icon { display: none; }
-  :global([data-theme="dark"]) .moon-icon { display: none; }
-  :global(:not([data-theme="light"]):not([data-theme="dark"])) .moon-icon { display: none; }
+  :global(:root[data-theme="light"]) .sun-icon { display: none; }
+  :global(:root[data-theme="dark"]) .moon-icon { display: none; }
+  :global(:root:not([data-theme="light"]):not([data-theme="dark"])) .moon-icon { display: none; }
 
   /* Hamburger */
   .nav-hamburger {

@@ -52,6 +52,52 @@
   --radius-pill: 9999px;
 }
 
+:root {
+  --syntax-keyword: #7b8fff;
+  --syntax-type: var(--color-accent-cyan);
+  --syntax-str: #a8d4a8;
+  --syntax-fn: #e2a97e;
+  --syntax-decorator: #c792ea;
+  --syntax-num: #e2a97e;
+  --color-grid-dot: rgba(255, 255, 255, 0.04);
+  --color-nav-bg: rgba(15, 15, 15, 0.85);
+  --color-overlay-bg: rgba(0, 0, 0, 0.95);
+}
+
+:root[data-theme="light"] {
+  --color-primary: #0007cd;
+  --color-primary-active: #0005a3;
+  --color-primary-glow: rgba(0, 7, 205, 0.8);
+  --color-ink: #09090b;
+  --color-body: #52525b;
+  --color-body-strong: #18181b;
+  --color-muted: #71717a;
+  --color-muted-soft: #a1a1aa;
+  --color-hairline: #e4e4e7;
+  --color-hairline-soft: #f4f4f5;
+  --color-hairline-strong: #d4d4d8;
+  --color-canvas: #fcfcfc;
+  --color-canvas-deep: #f5f5f5;
+  --color-surface-card: #ffffff;
+  --color-surface-card-elevated: #f4f4f5;
+  --color-surface-strong: #e4e4e7;
+  --color-on-primary: #ffffff;
+  --color-accent-cyan: #0891b2;
+  --color-accent-violet: #6d28d9;
+  --color-success: #16a34a;
+  --color-error: #dc2626;
+
+  --syntax-keyword: #2563eb;
+  --syntax-type: var(--color-accent-cyan);
+  --syntax-str: #16a34a;
+  --syntax-fn: #d97706;
+  --syntax-decorator: #9333ea;
+  --syntax-num: #d97706;
+  --color-grid-dot: rgba(0, 0, 0, 0.05);
+  --color-nav-bg: rgba(252, 252, 252, 0.85);
+  --color-overlay-bg: rgba(252, 252, 252, 0.95);
+}
+
 /* ─── Base Reset & Global ───────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -72,6 +118,9 @@ body {
   font-weight: 400;
   line-height: 1.5;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ─── Skip Link ─────────────────────────────────────────────────── */
@@ -497,13 +546,13 @@ body {
 }
 
 /* ─── Code syntax colors ────────────────────────────────────────── */
-.token-keyword { color: #7b8fff; }
-.token-string { color: #a8d4a8; }
+.token-keyword { color: var(--syntax-keyword); }
+.token-string { color: var(--syntax-str); }
 .token-comment { color: var(--color-muted-soft); font-style: italic; }
-.token-fn { color: #e2a97e; }
-.token-var { color: var(--color-body); }
-.token-decorator { color: #c792ea; }
-.token-type { color: var(--color-accent-cyan); }
+.token-fn { color: var(--syntax-fn); }
+.token-var { color: var(--color-body-strong); }
+.token-decorator { color: var(--syntax-decorator); }
+.token-type { color: var(--syntax-type); }
 
 /* ─── Animations ────────────────────────────────────────────────── */
 @keyframes fadeInUp {

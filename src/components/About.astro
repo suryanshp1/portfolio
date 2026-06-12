@@ -691,8 +691,42 @@
     .stat-sep { width: 48px; height: 1px; }
     .stat-block { padding: 0; }
 
+    /* Revert to column layout for the profile card on mobile to prevent overlap */
+    .profile-inner {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      gap: 0;
+      padding: 20px;
+    }
+    
     .profile-top {
-      flex-basis: 100%;
+      flex-basis: auto;
+      margin-bottom: 24px;
+      width: 100%;
+    }
+
+    .profile-identity {
+      margin-bottom: 16px;
+      flex: auto;
+      min-width: 0;
+    }
+    
+    .profile-meta {
+      margin-bottom: 24px;
+    }
+
+    .profile-divider {
+      margin-bottom: 16px;
+    }
+
+    .profile-socials {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      gap: 6px;
+    }
+
+    .profile-company {
+      margin-top: 16px;
     }
   }
 </style>

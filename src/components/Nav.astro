@@ -22,6 +22,24 @@
 
       <!-- CTA + Hamburger -->
       <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
         <a
           href="https://github.com/suryanshp1"
           class="btn-outline nav-github"
@@ -93,7 +111,7 @@
     border-bottom: 1px solid var(--color-hairline-soft);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    background: rgba(15, 15, 15, 0.85);
+    background: var(--color-nav-bg);
   }
 
   .nav-inner {
@@ -177,6 +195,30 @@
     }
   }
 
+  /* Theme Toggle */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-md);
+    color: var(--color-body-strong);
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+
+  .theme-toggle:hover {
+    background: var(--color-surface-card-elevated);
+    border-color: var(--color-hairline-strong);
+  }
+
+  :global([data-theme="light"]) .sun-icon { display: none; }
+  :global([data-theme="dark"]) .moon-icon { display: none; }
+  :global(:not([data-theme="light"]):not([data-theme="dark"])) .moon-icon { display: none; }
+
   /* Hamburger */
   .nav-hamburger {
     display: flex;
@@ -217,7 +259,7 @@
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.95);
+    background: var(--color-overlay-bg);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     z-index: 100;
@@ -329,4 +371,17 @@
   }, { threshold: 0.4, rootMargin: '-64px 0px 0px 0px' });
 
   sections.forEach(section => observer.observe(section));
+
+  // Theme Toggle Logic
+  const themeToggle = document.getElementById('theme-toggle');
+  
+  function handleThemeToggle() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  }
+
+  themeToggle?.addEventListener('click', handleThemeToggle);
 </script>

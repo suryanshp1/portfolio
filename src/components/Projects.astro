@@ -1,0 +1,494 @@
+---
+// Projects.astro
+const projects = [
+  {
+    id: 'strobes-platform',
+    title: 'Strobes Security Platform',
+    subtitle: 'Enterprise vulnerability management & VAPT automation',
+    description:
+      'End-to-end security platform processing 10M+ security events daily. Built the core backend architecture — distributed scanning engine, real-time threat aggregation, and compliance reporting pipeline.',
+    highlights: [
+      'Distributed microservices handling 10M+ events/day',
+      'Sub-100ms threat search across TBs of security data',
+      'AI-powered vulnerability triage reducing analyst time 60%',
+    ],
+    tech: ['FastAPI', 'Celery', 'RabbitMQ', 'PostgreSQL', 'Elasticsearch', 'Redis', 'Docker', 'AWS'],
+    category: 'Production System',
+    categoryColor: '#33d17a',
+    status: 'Production',
+    links: {
+      demo: 'https://strobes.co',
+    },
+  },
+  {
+    id: 'ai-agent-framework',
+    title: 'Agentic AI Workflow Engine',
+    subtitle: 'Multi-agent orchestration for security automation',
+    description:
+      'LLM-powered agent system built with LangGraph for complex, stateful security workflows. Agents autonomously triage vulnerabilities, generate executive reports, and coordinate remediation pipelines.',
+    highlights: [
+      'Multi-agent coordination with LangGraph state machines',
+      'RAG pipeline with vector similarity search',
+      'Human-in-the-loop approval for critical decisions',
+    ],
+    tech: ['LangChain', 'LangGraph', 'Python', 'FastAPI', 'pgvector', 'Redis', 'OpenAI'],
+    category: 'AI / LLM',
+    categoryColor: '#6b7fff',
+    status: 'Production',
+    links: {
+      github: 'https://github.com/suryanshp1',
+    },
+  },
+  {
+    id: 'rag-knowledge-base',
+    title: 'Security Knowledge RAG System',
+    subtitle: 'Intelligent retrieval-augmented generation for threat intel',
+    description:
+      'Domain-specific RAG pipeline ingesting CVE databases, security advisories, and internal runbooks. Enables natural-language querying over terabytes of structured and unstructured security data.',
+    highlights: [
+      'Hybrid search: dense + sparse (BM25 + embeddings)',
+      'Real-time CVE ingestion from NVD and vendor feeds',
+      'Context-aware re-ranking with cross-encoders',
+    ],
+    tech: ['Python', 'LangChain', 'Elasticsearch', 'pgvector', 'OpenAI', 'FastAPI', 'PostgreSQL'],
+    category: 'AI / LLM',
+    categoryColor: '#6b7fff',
+    status: 'Production',
+    links: {
+      github: 'https://github.com/suryanshp1',
+    },
+  },
+  {
+    id: 'event-driven-infra',
+    title: 'Event-Driven Microservices Platform',
+    subtitle: 'Cloud-native distributed system architecture',
+    description:
+      'Designed and implemented a full event-driven platform migrating a Django monolith to independent microservices. Introduced CQRS, saga pattern, and async event sourcing for data consistency at scale.',
+    highlights: [
+      'Zero-downtime migration from monolith to microservices',
+      'CQRS + saga pattern for distributed transactions',
+      'Terraform IaC with multi-environment AWS deployment',
+    ],
+    tech: ['Python', 'FastAPI', 'RabbitMQ', 'Celery', 'PostgreSQL', 'Docker', 'Terraform', 'AWS ECS'],
+    category: 'Infrastructure',
+    categoryColor: '#e2a97e',
+    status: 'Production',
+    links: {
+      github: 'https://github.com/suryanshp1',
+    },
+  },
+  {
+    id: 'graphql-platform',
+    title: 'Real-Time GraphQL Data Platform',
+    subtitle: 'Subscriptions and federation for enterprise SaaS',
+    description:
+      'Built a GraphQL federation layer over multiple microservices, enabling clients to compose queries across domains. Implemented real-time subscriptions with WebSockets and Redis pub/sub.',
+    highlights: [
+      'GraphQL federation across 6 microservices',
+      'Real-time subscriptions via WebSocket + Redis',
+      'Dataloader batching eliminating N+1 queries',
+    ],
+    tech: ['Django', 'Strawberry GraphQL', 'Redis', 'PostgreSQL', 'WebSocket', 'Python'],
+    category: 'Backend API',
+    categoryColor: '#00d4ff',
+    status: 'Production',
+    links: {
+      github: 'https://github.com/suryanshp1',
+    },
+  },
+  {
+    id: 'devops-pipeline',
+    title: 'DevSecOps Automation Pipeline',
+    subtitle: 'CI/CD with integrated security scanning',
+    description:
+      'End-to-end DevSecOps pipeline integrating SAST, DAST, SCA, and container scanning into GitHub Actions. Automated security gates prevent vulnerable code from reaching production.',
+    highlights: [
+      'SAST + DAST + SCA integrated in CI pipeline',
+      'Container image scanning with policy enforcement',
+      'Automated SBOM generation and compliance reporting',
+    ],
+    tech: ['GitHub Actions', 'Docker', 'Terraform', 'AWS', 'Python', 'Bash'],
+    category: 'DevSecOps',
+    categoryColor: '#c792ea',
+    status: 'Open Source',
+    links: {
+      github: 'https://github.com/suryanshp1',
+    },
+  },
+];
+---
+
+<section id="projects" class="section-padding projects-section" aria-labelledby="projects-heading">
+  <div class="container-max">
+    <div class="section-header">
+      <span class="section-label" aria-hidden="true">04 — Projects</span>
+      <h2 id="projects-heading" class="display-lg">
+        Things I've built
+      </h2>
+      <p class="body-md projects-lead">
+        A selection of production systems and side projects spanning AI agents,
+        distributed backends, and cloud infrastructure.
+      </p>
+    </div>
+
+    <!-- Featured project (first one) -->
+    <div class="featured-project feature-card" aria-label="Featured project">
+      <div class="featured-glow" aria-hidden="true"></div>
+      <div class="featured-inner">
+        <div class="featured-content">
+          <div class="featured-meta">
+            <span class="badge-pill" style={`color:${projects[0].categoryColor}; border-color: ${projects[0].categoryColor}33; background: ${projects[0].categoryColor}15;`}>
+              {projects[0].category}
+            </span>
+            <span class="badge-pill" style="color: var(--color-success);">
+              ● {projects[0].status}
+            </span>
+          </div>
+          <h3 class="display-md featured-title">{projects[0].title}</h3>
+          <p class="body-md featured-subtitle" style="color:var(--color-muted); margin-bottom:16px;">{projects[0].subtitle}</p>
+          <p class="body-md" style="color:var(--color-body);">{projects[0].description}</p>
+
+          <ul class="featured-highlights" aria-label="Key highlights">
+            {projects[0].highlights.map(h => (
+              <li class="featured-highlight-item">
+                <span class="highlight-bullet" aria-hidden="true">→</span>
+                <span class="body-sm">{h}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="featured-tech" aria-label="Technologies used">
+            {projects[0].tech.map(t => <span class="tech-tag">{t}</span>)}
+          </div>
+        </div>
+
+        <div class="featured-links">
+          {projects[0].links.demo && (
+            <a
+              href={projects[0].links.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary"
+              aria-label={`Visit ${projects[0].title} (opens in new tab)`}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M7 7h10v10M7 17 17 7"/>
+              </svg>
+              Live Site
+            </a>
+          )}
+          {projects[0].links.github && (
+            <a
+              href={projects[0].links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-outline"
+              aria-label={`View ${projects[0].title} on GitHub (opens in new tab)`}
+            >
+              GitHub
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+
+    <!-- Project grid (remaining) -->
+    <div class="projects-grid">
+      {projects.slice(1).map(project => (
+        <article class="project-card feature-card" aria-label={project.title}>
+          <div class="project-card-inner">
+            <div class="project-meta">
+              <span
+                class="badge-pill project-category"
+                style={`color:${project.categoryColor}; border-color:${project.categoryColor}33; background:${project.categoryColor}15;`}
+              >
+                {project.category}
+              </span>
+              <span class="project-status body-sm" style="color:var(--color-muted);">
+                {project.status}
+              </span>
+            </div>
+
+            <h3 class="title-md project-title">{project.title}</h3>
+            <p class="body-sm project-subtitle" style="color:var(--color-muted);">{project.subtitle}</p>
+            <p class="body-sm project-desc">{project.description}</p>
+
+            <div class="project-tech" aria-label="Technologies used">
+              {project.tech.slice(0, 4).map(t => <span class="tech-tag">{t}</span>)}
+              {project.tech.length > 4 && (
+                <span class="tech-tag tech-tag-more">+{project.tech.length - 4}</span>
+              )}
+            </div>
+
+            <div class="project-links">
+              {project.links.demo && (
+                <a
+                  href={project.links.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link"
+                  aria-label={`Visit ${project.title} (opens in new tab)`}
+                >
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M7 7h10v10M7 17 17 7"/>
+                  </svg>
+                  Demo
+                </a>
+              )}
+              {project.links.github && (
+                <a
+                  href={project.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link"
+                  aria-label={`View ${project.title} on GitHub (opens in new tab)`}
+                >
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                  GitHub
+                </a>
+              )}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- View more -->
+    <div class="projects-cta">
+      <a
+        href="https://github.com/suryanshp1"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-secondary"
+        aria-label="View all projects on GitHub (opens in new tab)"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+        </svg>
+        View All on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects-section {
+    border-top: 1px solid var(--color-hairline-soft);
+  }
+
+  .section-header {
+    margin-bottom: 64px;
+  }
+
+  .projects-lead {
+    max-width: 520px;
+    margin-top: 16px;
+  }
+
+  /* Featured project */
+  .featured-project {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 24px;
+    border-radius: var(--radius-xl);
+    padding: 36px;
+  }
+
+  .featured-glow {
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(26, 38, 255, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .featured-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  @media (min-width: 768px) {
+    .featured-inner {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  }
+
+  .featured-content {
+    flex: 1;
+  }
+
+  .featured-meta {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .featured-title {
+    margin: 0 0 4px;
+    font-size: clamp(22px, 2.5vw, 32px);
+  }
+
+  .featured-subtitle {
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  .featured-highlights {
+    list-style: none;
+    margin: 16px 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .featured-highlight-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .highlight-bullet {
+    color: var(--color-primary-glow);
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .featured-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+  }
+
+  .featured-links {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    align-self: flex-end;
+  }
+
+  /* Project grid */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  @media (min-width: 640px) {
+    .projects-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .projects-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .project-card-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 12px;
+  }
+
+  .project-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .project-title {
+    margin: 0;
+  }
+
+  .project-subtitle {
+    margin: 0;
+    color: var(--color-muted);
+  }
+
+  .project-desc {
+    color: var(--color-body);
+    flex: 1;
+    margin: 0;
+  }
+
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .tech-tag {
+    padding: 3px 8px;
+    background: var(--color-surface-card-elevated);
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-sm);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--color-muted);
+    font-family: var(--font-mono);
+  }
+
+  .tech-tag-more {
+    color: var(--color-primary-glow);
+    border-color: rgba(26, 38, 255, 0.3);
+    background: rgba(26, 38, 255, 0.08);
+  }
+
+  .project-links {
+    display: flex;
+    gap: 10px;
+    padding-top: 12px;
+    border-top: 1px solid var(--color-hairline-soft);
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .project-link:hover {
+    color: var(--color-ink);
+  }
+
+  .project-link:focus-visible {
+    outline: 2px solid rgba(26, 38, 255, 0.6);
+    outline-offset: 3px;
+    border-radius: var(--radius-xs);
+  }
+
+  /* CTA */
+  .projects-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+</style>

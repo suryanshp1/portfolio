@@ -1,0 +1,366 @@
+---
+// Hero.astro — Full-viewport hero with spotlight glow + terminal mockup
+---
+
+<section id="hero" class="hero-section" aria-label="Introduction">
+  <!-- Spotlight glow backdrop -->
+  <div class="spotlight-glow" aria-hidden="true"></div>
+
+  <!-- Dot grid texture -->
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+
+  <div class="container-max hero-inner">
+
+    <!-- Left: Text content -->
+    <div class="hero-content">
+      <!-- Badge pill -->
+      <div class="animate-fade-in-up">
+        <span class="badge-pill badge-pill-blue">
+          <span style="width:6px;height:6px;border-radius:50%;background:#33d17a;display:inline-block;" aria-hidden="true"></span>
+          Available for opportunities
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="display-mega hero-headline animate-fade-in-up-delay-1">
+        Building systems<br />
+        <span class="gradient-text">that think.</span>
+      </h1>
+
+      <!-- Sub-description -->
+      <p class="body-md hero-sub animate-fade-in-up-delay-2">
+        Senior Backend & AI Engineer with 4+ years delivering high-performance 
+        distributed systems, agentic AI workflows, and cloud-native platforms 
+        used by global enterprises.
+      </p>
+
+      <!-- Tech badge row -->
+      <div class="hero-tech-row animate-fade-in-up-delay-3" aria-label="Primary technologies">
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">FastAPI</span>
+        <span class="tech-pill">LangChain</span>
+        <span class="tech-pill">AWS</span>
+        <span class="tech-pill">Docker</span>
+      </div>
+
+      <!-- CTA Row -->
+      <div class="hero-ctas animate-fade-in-up-delay-4">
+        <a href="#projects" class="btn-primary" aria-label="View my projects">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+          View My Work
+        </a>
+        <a href="#contact" class="btn-outline" aria-label="Get in touch with me">
+          Get in Touch
+        </a>
+        <a
+          href="https://linkedin.com/in/suryanshp1"
+          class="btn-secondary"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn profile (opens in new tab)"
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <!-- Mini stats -->
+      <div class="hero-stats animate-fade-in-up-delay-4">
+        <div class="stat-item">
+          <span class="stat-value">4+</span>
+          <span class="stat-label">Years of experience</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-value">20+</span>
+          <span class="stat-label">Technologies mastered</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-value">∞</span>
+          <span class="stat-label">AI agents deployed</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Terminal pane mockup -->
+    <div class="hero-terminal animate-fade-in-up-delay-3" aria-label="Code snippet showcase" role="img">
+      <div class="terminal-grid">
+        <!-- Pane 1: FastAPI -->
+        <div class="terminal-pane">
+          <div class="terminal-pane-header">
+            <span class="terminal-dot" style="background:#ff5f57" aria-hidden="true"></span>
+            <span class="terminal-dot" style="background:#febc2e" aria-hidden="true"></span>
+            <span class="terminal-dot" style="background:#28c840" aria-hidden="true"></span>
+            <span class="terminal-title">api/routes.py</span>
+          </div>
+          <pre class="code-text terminal-code" aria-label="FastAPI route example"><code><span class="token-decorator">@app</span><span class="token-keyword">.post</span><span class="token-var">(</span><span class="token-string">"/agent/run"</span><span class="token-var">)</span>
+<span class="token-keyword">async def</span> <span class="token-fn">run_agent</span><span class="token-var">(</span>
+  <span class="token-var">req: </span><span class="token-type">AgentRequest</span><span class="token-var">,</span>
+  <span class="token-var">db: </span><span class="token-type">AsyncSession</span>
+<span class="token-var">):</span>
+  <span class="token-var">result </span><span class="token-keyword">=</span> <span class="token-keyword">await</span>
+    <span class="token-fn">agent</span><span class="token-var">.</span><span class="token-fn">ainvoke</span><span class="token-var">(</span>
+      <span class="token-var">req</span><span class="token-var">.</span><span class="token-fn">query</span>
+    <span class="token-var">)</span>
+  <span class="token-keyword">return</span> <span class="token-var">result</span></code></pre>
+        </div>
+
+        <!-- Pane 2: LangChain -->
+        <div class="terminal-pane">
+          <div class="terminal-pane-header">
+            <span class="terminal-dot" style="background:#ff5f57" aria-hidden="true"></span>
+            <span class="terminal-dot" style="background:#febc2e" aria-hidden="true"></span>
+            <span class="terminal-dot" style="background:#28c840" aria-hidden="true"></span>
+            <span class="terminal-title">agents/chain.py</span>
+          </div>
+          <pre class="code-text terminal-code" aria-label="LangChain agent example"><code><span class="token-var">chain </span><span class="token-keyword">=</span> <span class="token-var">(</span>
+  <span class="token-fn">ChatPromptTemplate</span>
+  <span class="token-var">.</span><span class="token-fn">from_messages</span><span class="token-var">(</span>
+    <span class="token-var">msgs</span>
+  <span class="token-var">)</span>
+  <span class="token-var">|</span> <span class="token-fn">llm</span>
+  <span class="token-var">|</span> <span class="token-type">StrOutputParser</span>
+<span class="token-var">)</span>
+<span class="token-comment"># RAG + memory</span>
+<span class="token-keyword">async for</span> <span class="token-var">chunk</span> <span class="token-keyword">in</span>
+  <span class="token-var">chain</span><span class="token-var">.</span><span class="token-fn">astream</span><span class="token-var">(</span><span class="token-var">q</span><span class="token-var">)</span><span class="token-var">:</span></code></pre>
+        </div>
+
+        <!-- Pane 3: Celery Task -->
+        <div class="terminal-pane">
+          <div class="terminal-pane-header">
+            <span class="terminal-dot" style="background:#ff5f57" aria-hidden="true"></span>
+            <span class="terminal-dot" style="background:#febc2e" aria-hidden="true"></span>
+            <span class="terminal-dot" style="background:#28c840" aria-hidden="true"></span>
+            <span class="terminal-title">tasks/worker.py</span>
+          </div>
+          <pre class="code-text terminal-code" aria-label="Celery task example"><code><span class="token-decorator">@celery</span><span class="token-keyword">.task</span><span class="token-var">(</span>
+  <span class="token-var">bind</span><span class="token-keyword">=</span><span class="token-keyword">True</span><span class="token-var">,</span>
+  <span class="token-var">max_retries</span><span class="token-keyword">=</span><span class="token-var">3</span>
+<span class="token-var">)</span>
+<span class="token-keyword">def</span> <span class="token-fn">scan_asset</span><span class="token-var">(</span>
+  <span class="token-var">self, asset_id: </span><span class="token-type">str</span>
+<span class="token-var">):</span>
+  <span class="token-comment"># Distributed scan</span>
+  <span class="token-fn">vuln_engine</span><span class="token-var">.</span>
+    <span class="token-fn">run</span><span class="token-var">(</span><span class="token-var">asset_id</span><span class="token-var">)</span></code></pre>
+        </div>
+
+        <!-- Pane 4: Terraform -->
+        <div class="terminal-pane">
+          <div class="terminal-pane-header">
+            <span class="terminal-dot" style="background:#ff5f57" aria-hidden="true"></span>
+            <span class="terminal-dot" style="background:#febc2e" aria-hidden="true"></span>
+            <span class="terminal-dot" style="background:#28c840" aria-hidden="true"></span>
+            <span class="terminal-title">infra/main.tf</span>
+          </div>
+          <pre class="code-text terminal-code" aria-label="Terraform infrastructure example"><code><span class="token-keyword">resource</span> <span class="token-string">"aws_ecs_service"</span>
+<span class="token-string">"api"</span> <span class="token-var">{</span>
+  <span class="token-var">name    </span><span class="token-keyword">=</span> <span class="token-string">"core-api"</span>
+  <span class="token-var">cluster </span><span class="token-keyword">=</span>
+    <span class="token-fn">aws_ecs_cluster</span>
+    <span class="token-var">.</span><span class="token-fn">main</span><span class="token-var">.</span><span class="token-fn">id</span>
+  <span class="token-var">desired </span><span class="token-keyword">=</span> <span class="token-var">3</span>
+<span class="token-var">}</span></code></pre>
+        </div>
+      </div>
+
+      <!-- Blue glow behind terminal -->
+      <div class="terminal-glow" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator" aria-hidden="true">
+    <div class="scroll-line animate-scroll-bounce">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 5v14M19 12l-7 7-7-7"/>
+      </svg>
+    </div>
+    <span class="scroll-label">Scroll</span>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    min-height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-block: 80px 48px;
+  }
+
+  /* Dot grid background */
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+    align-items: center;
+    width: 100%;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+  }
+
+  /* Content */
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .hero-headline {
+    margin: 0;
+  }
+
+  .hero-sub {
+    max-width: 480px;
+    margin: 0;
+    color: var(--color-body);
+  }
+
+  /* Tech pills */
+  .hero-tech-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tech-pill {
+    padding: 4px 10px;
+    background: var(--color-surface-card);
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-muted);
+    font-family: var(--font-mono);
+  }
+
+  /* CTAs */
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  /* Stats */
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-top: 8px;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .stat-value {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--color-ink);
+    letter-spacing: -0.5px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--color-muted);
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 32px;
+    background: var(--color-hairline);
+    flex-shrink: 0;
+  }
+
+  /* Terminal */
+  .hero-terminal {
+    position: relative;
+  }
+
+  .terminal-code {
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .terminal-glow {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 80px;
+    background: radial-gradient(ellipse, rgba(26, 38, 255, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+    filter: blur(20px);
+  }
+
+  /* Scroll indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    z-index: 10;
+  }
+
+  .scroll-line {
+    color: var(--color-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .scroll-label {
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-muted-soft);
+  }
+
+  @media (max-width: 640px) {
+    .hero-terminal {
+      display: none;
+    }
+    .scroll-indicator {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .hero-terminal .terminal-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,298 @@
+---
+// Footer.astro
+const year = new Date().getFullYear();
+
+const navLinks = [
+  { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#contact', label: 'Contact' },
+];
+
+const socialLinks = [
+  { href: 'https://github.com/suryanshp1', label: 'GitHub', external: true },
+  { href: 'https://linkedin.com/in/suryanshp1', label: 'LinkedIn', external: true },
+  { href: 'https://twitter.com/suryanshp1', label: 'Twitter', external: true },
+  { href: 'mailto:suryanshp1@gmail.com', label: 'Email', external: false },
+];
+---
+
+<footer class="footer" role="contentinfo">
+  <hr class="hairline" />
+  <div class="container-max footer-inner">
+    <!-- Top row -->
+    <div class="footer-top">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="/" class="footer-logo-link" aria-label="Suryansh Pandey — back to top">
+          <span class="footer-monogram" aria-hidden="true">SP</span>
+          <span class="footer-brand-name">Suryansh Pandey</span>
+        </a>
+        <p class="body-sm footer-tagline">
+          Building systems that think — Senior Backend & AI Engineer.
+        </p>
+        <div class="footer-status" aria-label="Availability status">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="body-sm" style="color: var(--color-success);">Available for opportunities</span>
+        </div>
+      </div>
+
+      <!-- Nav links -->
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <p class="footer-nav-title caption-uppercase">Navigation</p>
+        <ul class="footer-nav-list" role="list">
+          {navLinks.map(link => (
+            <li>
+              <a href={link.href} class="footer-link">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- Social links -->
+      <nav class="footer-nav" aria-label="Social media links">
+        <p class="footer-nav-title caption-uppercase">Connect</p>
+        <ul class="footer-nav-list" role="list">
+          {socialLinks.map(link => (
+            <li>
+              <a
+                href={link.href}
+                class="footer-link"
+                {...link.external ? { target: '_blank', rel: 'noopener noreferrer', 'aria-label': `${link.label} (opens in new tab)` } : {}}
+              >
+                {link.label}
+                {link.external && (
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M7 7h10v10M7 17 17 7"/>
+                  </svg>
+                )}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- Stack -->
+      <div class="footer-stack">
+        <p class="footer-nav-title caption-uppercase">Built with</p>
+        <div class="footer-stack-tags">
+          <span class="footer-stack-tag">Astro 6</span>
+          <span class="footer-stack-tag">Tailwind v4</span>
+          <span class="footer-stack-tag">Vanilla CSS</span>
+        </div>
+        <p class="body-sm footer-stack-note">
+          Designed with Vercel & Composio<br />aesthetic guidelines.
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom row -->
+    <div class="footer-bottom">
+      <p class="body-sm footer-copy" style="color: var(--color-muted-soft);">
+        © {year} Suryansh Pandey. All rights reserved.
+      </p>
+      <a href="#hero" class="footer-back-top btn-secondary" aria-label="Back to top of page">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+        Back to top
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-canvas);
+    padding-top: 0;
+  }
+
+  .footer-inner {
+    padding-block: 64px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  /* Top row */
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  @media (min-width: 640px) {
+    .footer-top {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-top {
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 48px;
+    }
+  }
+
+  /* Brand */
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-logo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    width: fit-content;
+  }
+
+  .footer-monogram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-md);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+  }
+
+  .footer-brand-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-body-strong);
+  }
+
+  .footer-tagline {
+    color: var(--color-muted);
+    margin: 0;
+  }
+
+  .footer-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .status-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-success);
+    box-shadow: 0 0 6px var(--color-success);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .status-dot {
+      animation: none;
+    }
+  }
+
+  /* Nav */
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-nav-title {
+    margin: 0 0 4px;
+    color: var(--color-muted-soft);
+  }
+
+  .footer-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    color: var(--color-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .footer-link:hover {
+    color: var(--color-body-strong);
+  }
+
+  .footer-link:focus-visible {
+    outline: 2px solid rgba(26, 38, 255, 0.6);
+    outline-offset: 2px;
+    border-radius: var(--radius-xs);
+  }
+
+  /* Stack */
+  .footer-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-stack-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .footer-stack-tag {
+    padding: 3px 8px;
+    background: var(--color-surface-card);
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-sm);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--color-muted);
+    font-family: var(--font-mono);
+  }
+
+  .footer-stack-note {
+    color: var(--color-muted-soft);
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  /* Bottom */
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-hairline-soft);
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .footer-copy {
+    margin: 0;
+  }
+
+  .footer-back-top {
+    height: 34px;
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+</style>

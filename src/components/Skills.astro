@@ -1,0 +1,245 @@
+---
+// Skills.astro — 4-up toolkit card grid
+const categories = [
+  {
+    label: 'Languages & Runtimes',
+    items: [
+      { icon: '🐍', name: 'Python', level: 'Expert' },
+      { icon: '📦', name: 'TypeScript', level: 'Proficient' },
+      { icon: '🔧', name: 'Bash', level: 'Proficient' },
+      { icon: '🗃️', name: 'SQL', level: 'Expert' },
+    ],
+  },
+  {
+    label: 'Backend Frameworks',
+    items: [
+      { icon: '⚡', name: 'FastAPI', level: 'Expert' },
+      { icon: '🦄', name: 'Django', level: 'Expert' },
+      { icon: '🍇', name: 'GraphQL', level: 'Advanced' },
+      { icon: '🌐', name: 'REST APIs', level: 'Expert' },
+    ],
+  },
+  {
+    label: 'AI & ML',
+    items: [
+      { icon: '🦜', name: 'LangChain', level: 'Expert' },
+      { icon: '🕸️', name: 'LangGraph', level: 'Expert' },
+      { icon: '🤝', name: 'CrewAI', level: 'Advanced' },
+      { icon: '📚', name: 'RAG Pipelines', level: 'Expert' },
+    ],
+  },
+  {
+    label: 'Databases',
+    items: [
+      { icon: '🐘', name: 'PostgreSQL', level: 'Expert' },
+      { icon: '🍃', name: 'MongoDB', level: 'Advanced' },
+      { icon: '⚡', name: 'Redis', level: 'Advanced' },
+      { icon: '🔍', name: 'Elasticsearch', level: 'Advanced' },
+    ],
+  },
+  {
+    label: 'Message Queues',
+    items: [
+      { icon: '🐇', name: 'RabbitMQ', level: 'Advanced' },
+      { icon: '🌿', name: 'Celery', level: 'Expert' },
+      { icon: '📡', name: 'Kafka', level: 'Proficient' },
+      { icon: '🔄', name: 'Event-Driven', level: 'Expert' },
+    ],
+  },
+  {
+    label: 'Cloud & Infrastructure',
+    items: [
+      { icon: '☁️', name: 'AWS', level: 'Advanced' },
+      { icon: '🏗️', name: 'Terraform', level: 'Advanced' },
+      { icon: '🐳', name: 'Docker', level: 'Expert' },
+      { icon: '🚀', name: 'GitHub Actions', level: 'Expert' },
+    ],
+  },
+];
+
+const levelColor: Record<string, string> = {
+  Expert: '#33d17a',
+  Advanced: '#6b7fff',
+  Proficient: '#888888',
+};
+---
+
+<section id="skills" class="section-padding skills-section" aria-labelledby="skills-heading">
+  <div class="container-max">
+    <div class="section-header">
+      <span class="section-label" aria-hidden="true">03 — Skills & Tools</span>
+      <h2 id="skills-heading" class="display-lg">
+        My tech arsenal
+      </h2>
+      <p class="body-md skills-lead">
+        A curated stack of tools I use to ship production-grade systems —
+        from AI agents to cloud infrastructure.
+      </p>
+    </div>
+
+    <!-- Categories grid -->
+    <div class="categories-grid">
+      {categories.map(cat => (
+        <div class="category-block">
+          <h3 class="category-label">{cat.label}</h3>
+          <div class="toolkit-grid" role="list" aria-label={`${cat.label} technologies`}>
+            {cat.items.map(item => (
+              <div class="toolkit-card" role="listitem">
+                <div class="toolkit-icon" aria-hidden="true">{item.icon}</div>
+                <p class="title-sm toolkit-name">{item.name}</p>
+                <span
+                  class="level-badge"
+                  style={`color: ${levelColor[item.level] || '#888'};`}
+                  aria-label={`Proficiency: ${item.level}`}
+                >
+                  {item.level}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom: Open to tools summary -->
+    <div class="skills-footer">
+      <div class="skills-footer-inner feature-card">
+        <div class="skills-footer-glow" aria-hidden="true"></div>
+        <p class="display-sm" style="margin:0 0 8px;">
+          Always learning.
+        </p>
+        <p class="body-md" style="margin:0; max-width:480px;">
+          The AI tooling landscape evolves weekly. I stay current with LLM evaluation frameworks, 
+          vector search optimizations, and agentic orchestration patterns.
+        </p>
+        <div class="skills-footer-tags" aria-label="Current learning focus">
+          <span class="badge-pill badge-pill-blue">LLM Evals</span>
+          <span class="badge-pill badge-pill-blue">Multi-Agent Systems</span>
+          <span class="badge-pill badge-pill-blue">Vector DBs</span>
+          <span class="badge-pill badge-pill-blue">MCP Protocol</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-section {
+    border-top: 1px solid var(--color-hairline-soft);
+  }
+
+  .section-header {
+    margin-bottom: 64px;
+  }
+
+  .skills-lead {
+    max-width: 520px;
+    margin-top: 16px;
+  }
+
+  /* Categories */
+  .categories-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  @media (min-width: 768px) {
+    .categories-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .categories-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  .category-block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .category-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.88px;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin: 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-hairline);
+  }
+
+  /* Toolkit grid */
+  .toolkit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .toolkit-card {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background: var(--color-surface-card);
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-lg);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    cursor: default;
+  }
+
+  .toolkit-card:hover {
+    border-color: var(--color-hairline-strong);
+    transform: translateY(-2px);
+  }
+
+  .toolkit-icon {
+    font-size: 22px;
+    margin-bottom: 10px;
+    line-height: 1;
+  }
+
+  .toolkit-name {
+    margin: 0 0 6px;
+    font-size: 14px;
+  }
+
+  .level-badge {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  /* Footer card */
+  .skills-footer {
+    margin-top: 48px;
+  }
+
+  .skills-footer-inner {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .skills-footer-glow {
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(26, 38, 255, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .skills-footer-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+</style>
